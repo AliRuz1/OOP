@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+public class Directory {
+    private String nameDirectory;
+    private ArrayList<TextFile> files;
+
+    public String getNameDirectory() {
+        return nameDirectory;
+    }
+
+    public Directory(String nameDirectory){
+        this.nameDirectory = nameDirectory;
+        files = new ArrayList<TextFile>();
+
+    }
+
+    public ArrayList<TextFile> getFiles() {
+        return files;
+    }
+
+    public void addFile(TextFile file){
+        this.files.add(file);
+    }
+
+    public void deleteFile(String fileName){
+        for(int i = 0; i < files.size(); i++){
+            if(files.get(i).getFileName().equalsIgnoreCase(fileName)){
+                files.remove(i);
+            }
+        }
+    }
+}
