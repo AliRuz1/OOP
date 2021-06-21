@@ -1,0 +1,39 @@
+public class Main {
+    public static void main(String[] args) {
+        Directory directory = new Directory("first directory");
+        String fileName = "Absract";
+        TextFile tFile = new TextFile(directory, fileName);
+        String line1 = "Так вот, абстрактный класс — это максимально абстрактная, о-о-о-чень приблизительная «заготовка» для группы будущих классов.";
+        tFile.newText(line1);
+
+        System.out.println("New text File name" + tFile.getFileName() + ".");
+
+        tFile.changeName("Abstract class");
+        System.out.println("File name is changed. New file name: " + tFile.getFileName() + ".");
+
+        System.out.println("\nShow text");
+        tFile.showText();
+
+        System.out.println("\nAdd new line");
+        String line2 = "\nHe's a zealous promoter of the Spring Framework, speaking frequently at local user groups and conferences.";
+        tFile.newText(line2);
+        tFile.showText();
+
+        System.out.println("\nDirectory contains: ");
+        for (File file : directory.getFiles()) {
+            System.out.println(file);
+        }
+
+        System.out.println("\nCreate new text file and show the directory content");
+        File tFile2 = new TextFile(directory, "PAPAPA");
+        for (TextFile file : directory.getFiles()) {
+            System.out.println(file);
+        }
+
+        System.out.println("\nDelete one directory and show");
+        directory.deleteFile("PAPAPA");
+        for (TextFile file : directory.getFiles()) {
+            System.out.println(file);
+        }
+    }
+}
