@@ -1,0 +1,22 @@
+class TextFile extends File{
+    private Text content;
+
+    TextFile(Directory directory, String fileName){
+        super(directory, fileName);
+        content = new Text("");
+        super.getDirectory().addFile(this);
+    }
+
+    public void newText(String line){
+        content.newText(line);
+    }
+
+    public void showText(){
+        System.out.println(content.getText());
+    }
+
+    @Override
+    public void changeName(String fileName) {
+    this.setFileName(fileName);
+    }
+}
